@@ -53,10 +53,10 @@ int main(int argc, char **argv) {
 	Graph graph(4);
 	graph.addEdge(0, 1);
 	graph.addEdge(0, 2);
-    graph.addEdge(0, 3);
-    graph.addEdge(1, 2);
-    graph.addEdge(2, 3);
+	graph.addEdge(0, 3);
+	graph.addEdge(1, 2);
+	graph.addEdge(2, 3);
     
-    graph.printGraph();
-    return 0; 
+	graph.printGraph();
+	return 0; 
 }
