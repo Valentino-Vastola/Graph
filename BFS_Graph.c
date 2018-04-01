@@ -163,7 +163,7 @@ void printGraph(struct Graph* graph) {
             temp = temp->next;
         }
         printf("\n");
-	}
+    }
 }
 
 void BFS(struct Graph* graph, int startVertex)
