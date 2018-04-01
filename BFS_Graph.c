@@ -161,7 +161,7 @@ void printGraph(struct Graph* graph) {
         while(temp) {
             printf("%d -> ", temp->vertex);
             temp = temp->next;
-		}
+        }
         printf("\n");
 	}
 }
@@ -194,10 +194,10 @@ void BFS(struct Graph* graph, int startVertex)
                 graph->visited[adjVertexValue] = 1;
                 /* Insert visited vertices in queue */
                 enQueue(queue, adjVertexValue);
-			}
+           }
             /* Traverse the next vertex in adjacency node */
 			tempVar = tempVar->next;
-		}
+        }
 	}
 }
 
