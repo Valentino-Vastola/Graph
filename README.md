@@ -12,3 +12,7 @@ There are representation of graph is given below
 Program: BFS_Graph.C  
 Pseudocode:  
 https://en.wikipedia.org/wiki/Graph_traversal  
+  
+Program: DFS_Graph.C  
+Pseudocode:  
+https://en.wikipedia.org/wiki/Graph_traversal  
