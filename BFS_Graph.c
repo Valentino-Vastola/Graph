@@ -120,8 +120,7 @@ struct node *CreateNode(int value)
     /* Create a new node */
     struct node *newNode = (struct node*) malloc (sizeof(struct node));
     newNode->vertex = value;
-    newNode->next = NULL;
-	
+    newNode->next = NULL;	
     return newNode;
 }
 
@@ -135,8 +134,7 @@ struct Graph *CreateGraph(int numOfVertex) {
     for(i = 0; i < numOfVertex; i++) {
         graph->adjList[i] = NULL;
         graph->visited[i] = 0;		// Set values in visited list as 0
-	}
-
+    }
     return graph;	
 }
 
@@ -161,9 +159,9 @@ void printGraph(struct Graph* graph) {
         while(temp) {
             printf("%d -> ", temp->vertex);
             temp = temp->next;
-        }
+		}
         printf("\n");
-    }
+	}
 }
 
 void BFS(struct Graph* graph, int startVertex)
@@ -173,32 +171,33 @@ void BFS(struct Graph* graph, int startVertex)
     /* Set startVertex in visited list as true */
     graph->visited[startVertex] = 1;
     /* Insert visited vertex in queue */
-    enQueue(queue, startVertex);
-	
+    enQueue(queue, startVertex);	
 	
     while(!isEmpty(queue))
     {
         printQueue(queue);
-        /* Remove head element from the queue */
+        /* Remove front element from the queue */
         int dequeueVertex = deQueue(queue);
         printf("\nVisited vertex: %d\n", dequeueVertex);
         
         /* Get the address of adjacency list to traverse the vertex of graph */
-        struct node* tempVar = graph->adjList[dequeueVertex];
-        while(tempVar) {
+        struct node* head = graph->adjList[dequeueVertex];
+
+        while(head) 
+        {
             /* Get value of vertex node */
-            int adjVertexValue = tempVar->vertex;
+            int adjVertexValue = head->vertex;
             /* Check the vertex is not visited */
             if(graph->visited[adjVertexValue] == 0) {
                 /* If vertex not visited then set as visited */
                 graph->visited[adjVertexValue] = 1;
                 /* Insert visited vertices in queue */
                 enQueue(queue, adjVertexValue);
-           }
+			}
             /* Traverse the next vertex in adjacency node */
-			tempVar = tempVar->next;
+            head = head->next;
         }
-	}
+    }
 }
 
 int main(int argc, char **argv)
@@ -214,7 +213,6 @@ int main(int argc, char **argv)
     printGraph(graph);
     printf("\n");
     
-    BFS(graph, 0);
-	
-	return 0;
+    BFS(graph, 0);	
+    return 0;
 }
