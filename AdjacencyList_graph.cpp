@@ -33,7 +33,10 @@ Graph::Graph(int V) {
 
 void Graph::addEdge(int src, int dest)
 {
+    // Add edge from src to dest vertex
 	adjList[src].push_back(dest);
+    // Add edge from dest to src vertex
+    adjList[dest].push_back(src);
 }
 
 void Graph::printGraph() {	
@@ -46,7 +49,7 @@ void Graph::printGraph() {
 		}
 		std::cout<<"\n";
 	}
-	std::cout<<"\n";	
+	std::cout<<"\n";
 }
 
 int main(int argc, char **argv) {
