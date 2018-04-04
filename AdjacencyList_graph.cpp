@@ -34,9 +34,9 @@ Graph::Graph(int V) {
 void Graph::addEdge(int src, int dest)
 {
     // Add edge from src to dest vertex
-	adjList[src].push_back(dest);
+	adjList[src].push_front(dest);
     // Add edge from dest to src vertex
-    adjList[dest].push_back(src);
+    adjList[dest].push_front(src);
 }
 
 void Graph::printGraph() {	
