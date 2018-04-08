@@ -1,4 +1,4 @@
-/* FFS for a graph */
+/* Detect cycle in undirected graph using DFS algo */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,17 +17,12 @@ struct Graph {
     struct node **adjList;
 };
 
-/* Graph Operations */
-/* Create a vertex node */
 struct node *CreateNode(int value);
-/* Create a graph */
 struct Graph *CreateGraph(int numOfVertex);
 void addEdge(struct Graph *graph, int src, int dest);
 void printGraph(struct Graph *graph);
-/* Breadth First Search function */
-int cycleSearchDFS(struct Graph* graph, int v, int parent);
+int detectCycleUsingDFS(struct Graph* graph, int v, int parent);
 
-/* Graph Operations */
 struct node *CreateNode(int value)
 {
     /* Create a new node */
@@ -77,7 +72,6 @@ void printGraph(struct Graph* graph) {
     }
 }
 
-
 /* 
    Condition: Check if cycle exist in a undirected graph using DFS Algo
    --------------------------------------------------------------------
@@ -85,7 +79,7 @@ void printGraph(struct Graph* graph) {
    is already visited and 'u' is not parent of 'v', then there is
    a cycle in graph. 
 */
-int cycleSearchDFS(struct Graph* graph, int v, int parent)
+int detectCycleUsingDFS(struct Graph* graph, int v, int parent)
 {
     struct node* head = graph->adjList[v];
     struct node* tempNode = head;
@@ -99,7 +93,7 @@ int cycleSearchDFS(struct Graph* graph, int v, int parent)
         int u = tempNode->vertex;
         /* Check the vertex is not visited */
         if(graph->visited[u] == 0) {
-            if (cycleSearchDFS(graph, u, v))
+            if (detectCycleUsingDFS(graph, u, v))
                 return 1;
         }
         else
@@ -118,37 +112,16 @@ int main(int argc, char **argv)
     printf("Graph1:\n")
     struct Graph *graph = CreateGraph(4);
 
-    addEdge(graph, 0, 1);    //0->1
-    addEdge(graph, 0, 2);    //0->2
-    addEdge(graph, 0, 3);    //0->3
-    addEdge(graph, 1, 2);    //1->2
-    addEdge(graph, 2, 3);    //2->3
+    addEdge(graph, 0, 1);    //0<->1
+    addEdge(graph, 0, 2);    //0<->2
+    addEdge(graph, 0, 3);    //0<->3
+    addEdge(graph, 1, 2);    //1<->2
+    addEdge(graph, 2, 3);    //2<->3
     
     printGraph(graph);
     printf("\n");
     
-    if (cycleSearchDFS(graph, 0, -1) == 1)
-    {
-        printf("\nGraph contains a cycle");
-    }
-    else
-    {
-        printf("\nGraph does not contain any cycle");
-    }
-    
-    printf("\n");
-    printf("Graph2:\n")
-    struct Graph *g1 = CreateGraph(5);
-    addEdge(g1,1, 0);
-    addEdge(g1,0, 2);
-    addEdge(g1,2, 1);
-    addEdge(g1,0, 3);
-    addEdge(g1,3, 4);
-    
-    printGraph(g1);
-    printf("\n");
-    
-    if (cycleSearchDFS(g1, 3, -1) == 1)
+    if (detectCycleUsingDFS(graph, 0, -1) == 1)
     {
         printf("\nGraph contains a cycle");
     }
