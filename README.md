@@ -1,7 +1,8 @@
-# Graph
-Program: AdjacencyList_graph.c, Adjacency List representation of a graph in C  
-Program: AdjacencyList_graph.cpp, Adjacency List representation of a graph in C++  
-ReferLink: https://en.wikipedia.org/wiki/Adjacency_list  
+# Graph:
+--------
+1. Adjacency List representation for undirected graph
+AdjacencyList_graph.c
+AdjacencyList_graph.cpp
   
 There are representation of graph is given below  
 |0|->[3]->[2]->[1]->NULL,  
@@ -9,16 +10,21 @@ There are representation of graph is given below
 |2|->[3]->[1]->[0]->NULL,  
 |3|->[2]->[0]->NULL,  
   
-Program: BFS_Graph.C  
-Pseudocode: https://en.wikipedia.org/wiki/Graph_traversal  
+2. Breadth First Search (BFS Algorithm)
+BFS_Graph.C  
   
+3. Depth First Search (DFS Algorithm)
 Program: DFS_Graph.C  
-Pseudocode: https://en.wikipedia.org/wiki/Graph_traversal  
 
-Program: detectCycleInUnDirectedGraphUsingDFS.c, 
-Detect cycle in an undirected graph using DFS Algorithm
-RefereLink: https://www.youtube.com/watch?v=6ZRhq2oFCuo
+4. Detect cycle in an undirected graph using DFS
+detectCycleInUnDirectedGraphUsingDFS.c
 
-Program: detectCycleInDirectedGraphUsingDFS.c
-Detect cycle in a directed graph using DFS Algorithm
-RefereLink: https://www.youtube.com/watch?v=joqmqvHC_Bo&t=325s
+5. Detect cycle in a directed graph using DFS
+detectCycleInDirectedGraphUsingDFS.c
+
+6. Topological Sorting using DFS
+topologicalSorting.c
+
+7. Longest Path in a Directed Acyclic Graph
+longestPathInDAG.c
+
