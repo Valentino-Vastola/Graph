@@ -4,12 +4,6 @@
 AdjacencyList_graph.c  
 AdjacencyList_graph.cpp  
   
-There are representation of graph is given below  
-|0|->[3]->[2]->[1]->NULL,  
-|1|->[2]->[0]->NULL,  
-|2|->[3]->[1]->[0]->NULL,  
-|3|->[2]->[0]->NULL,  
-  
 2. Breadth First Search (BFS Algorithm)  
 BFS_Graph.C  
   
