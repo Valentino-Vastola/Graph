@@ -36,7 +36,7 @@ struct Stack *CreateStack()
 {
     struct Stack *s = (struct Stack*) malloc (STACK_SIZE * sizeof(struct Stack));
     s->top = -1;
-	return s;
+    return s;
 }
 
 int isEmpty(struct Stack* s)
@@ -61,7 +61,7 @@ void push(struct Stack* s, int value)
     {
         printf("\nStack is full\n");
         return;
-	}
+    }
     else {
         s->item[++(s->top)] = value;
     }
@@ -156,7 +156,7 @@ int topologicalSortUsingDFS(struct Graph* graph, int v, struct Stack *s)
 }
 
 
-/* Print stack value for topologival sort */
+/* Print stack value for topological sort */
 void displayStack(struct Stack *s)
 {
     int i;
@@ -214,7 +214,7 @@ int main(int argc, char **argv)
     int j;
     for(j = 0; j<graph->numVertex; j++) {
         dist[j] = INF;
-	}
+    }
     // Set starting point weight as 0 on vertex
     dist[startVertex] = 0;
     
@@ -224,20 +224,20 @@ int main(int argc, char **argv)
 
     while(!isEmpty(s)) {
         int u = s->item[s->top];
-    	pop(s);
+        pop(s);
     	
-    	if(dist[u] != INF) {
-    		struct node *head = graph->adjList[u];
+        if(dist[u] != INF) {
+            struct node *head = graph->adjList[u];
             struct node *temp = head;
             
-    		while(temp) {
-    			if(dist[temp->vertex] < dist[u] + temp->weight ) {
-    				dist[temp->vertex] = dist[u] + temp->weight;
-    				printf("dist[%d]: %d\n", temp->vertex, dist[u] + temp->weight);
-				}
-				temp = temp->next;
-			}
-		}        
+            while(temp) {
+                if(dist[temp->vertex] < dist[u] + temp->weight ) {
+                    dist[temp->vertex] = dist[u] + temp->weight;
+                    printf("dist[%d]: %d\n", temp->vertex, dist[u] + temp->weight);
+                }
+                temp = temp->next;
+            }
+        }        
     }
     printf("\n");
 
@@ -245,12 +245,12 @@ int main(int argc, char **argv)
     int k;
     for (k = 0; k < graph->numVertex; k++) {
         if(dist[k] == INF) {
-        	printf("%s ", "INF");
-		} 
-		else {
+            printf("%s ", "INF");
+        } 
+        else {
             printf("%d ", dist[k]);
-		}
-	}
+        }
+    }
     
     return 0;
 }
