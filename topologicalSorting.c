@@ -1,4 +1,4 @@
-/* Topologival sort for Directed Acyclic Graph (DAG) using DFS algo */
+/* Topological sort for Directed Acyclic Graph (DAG) using DFS algo */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,7 +34,7 @@ struct Stack *CreateStack()
 {
     struct Stack *s = (struct Stack*) malloc (STACK_SIZE * sizeof(struct Stack));
     s->top = -1;
-	return s;
+    return s;
 }
 
 int isEmpty(struct Stack* s)
@@ -59,7 +59,7 @@ void push(struct Stack* s, int value)
     {
         printf("\nStack is full\n");
         return;
-	}
+    }
     else {        
         s->item[++(s->top)] = value;
     }
@@ -153,7 +153,7 @@ int topologicalSortUsingDFS(struct Graph* graph, int v, struct Stack *s)
 }
 
 
-/* Print stack value for topologival sort */
+/* Print stack value for topological sort */
 void displayStack(struct Stack *s)
 {
     int i;
