@@ -1,4 +1,4 @@
-/* FFS for a graph */
+/* DFS for a graph */
 
 #include <stdio.h>
 #include <stdlib.h>
