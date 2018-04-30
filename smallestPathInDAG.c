@@ -249,6 +249,5 @@ int main(int argc, char **argv)
             printf("%d ", dist[k]);
         }
     }
-    
     return 0;
 }
