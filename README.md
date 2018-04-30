@@ -26,3 +26,7 @@ Reference link: https://stackoverflow.com/questions/27612920/why-is-topological-
   
 8. Smallest Path in a Directed Acyclic Graph  
 smallestPathInDAG.c
+  
+9. Check whether a given graph is Bipartite or not  
+BipartiteGraphUsingBFS.c  
+Reference: http://www.techiedelight.com/bipartite-graph/  
