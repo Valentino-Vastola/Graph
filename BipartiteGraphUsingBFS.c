@@ -1,4 +1,4 @@
-/* BFS for graph */
+/* Check whether a given graph is Bipartite or not */
 
 #include <stdio.h>
 #include <stdlib.h>
