@@ -28,18 +28,18 @@ struct Graph {
 };
 
 /* Queue operation */
-struct Queue *CreateQueue();					/* Create a Queue */
-void enQueue(struct Queue* q, int value);		/* Insert element into created queue */
-int deQueue(struct Queue* q);					/* Remove the element from queue */
-int isEmpty(struct Queue* q);					/* Check queue is empty */
-void printQueue(struct Queue* q);				/* Print the queue element */
+struct Queue *CreateQueue();                 /* Create a Queue */
+void enQueue(struct Queue* q, int value);    /* Insert element into created queue */
+int deQueue(struct Queue* q);                /* Remove the element from queue */
+int isEmpty(struct Queue* q);                /* Check queue is empty */
+void printQueue(struct Queue* q);            /* Print the queue element */
 
 /* Graph Operations */
-struct node *CreateNode(int value);				/* Create a vertex node */
-struct Graph *CreateGraph(int numOfVertex);		/* Create a graph */
+struct node *CreateNode(int value);             /* Create a vertex node */
+struct Graph *CreateGraph(int numOfVertex);     /* Create a graph */
 void addEdge(struct Graph *graph, int src, int dest);
-void printGraph(struct Graph *graph);			/* Print the Graph */
-int BfsBipartite(struct Graph* graph, int v);	/* Breadth First Search function */
+void printGraph(struct Graph *graph);           /* Print the Graph */
+int BfsBipartite(struct Graph* graph, int v);   /* Breadth First Search function */
 
 struct  Queue* CreateQueue() {
     struct Queue* q = (struct Queue*) malloc (sizeof(struct Queue));
@@ -154,35 +154,34 @@ void printGraph(struct Graph* graph) {
 
 int BfsBipartite(struct Graph* graph, int v)
 {    
-    graph->visited[v] = 1;			/* Set v in visited list as true */
-    graph->level[v] = 0;				/* Set level as 0 */
+    graph->visited[v] = 1;       /* Set v in visited list as true */
+    graph->level[v] = 0;         /* Set level as 0 */
     
-    struct Queue* queue = CreateQueue();		/* Create a Queue */    
-    enQueue(queue, v);				/* Insert visited vertex in queue */
+    struct Queue* queue = CreateQueue();    /* Create a Queue */    
+    enQueue(queue, v);                      /* Insert visited vertex in queue */
 	
     while(!isEmpty(queue))
     {
-        //printQueue(queue);        
-        int dequeueVertex = deQueue(queue);					/* Remove front element from the queue */
-        printf("\nVisited vertex: %d", dequeueVertex);		/* Print visited node after dequeue */
-        struct node* head = graph->adjList[dequeueVertex];	/* Get the address of adjacency list to traverse the vertex of graph */
+        int dequeueVertex = deQueue(queue);                 /* Remove front element from the queue */
+        printf("\nVisited vertex: %d", dequeueVertex);      /* Print visited node after dequeue */
+        struct node* head = graph->adjList[dequeueVertex];  /* Get the address of adjacency list to traverse the vertex of graph */
 
         while(head) 
         {            
-            int u = head->vertex;			/* Get value of vertex node */            
-            if(graph->visited[u] == 0) 		/* Check the vertex is not visited */
-			{
-                graph->visited[u] = 1;		/* If vertex not visited then set as visited */
+            int u = head->vertex;           /* Get value of vertex node */            
+            if(graph->visited[u] == 0)      /* Check the vertex is not visited */
+            {
+                graph->visited[u] = 1;      /* If vertex not visited then set as visited */
                 graph->level[u] = graph->level[v] + 1;
                 enQueue(queue, u);			/* Insert visited vertices in queue */
-			}
-			else
-			{
-				if(graph->level[v] == graph->level[u])
-				{
-					return 0;
-				}
-			}
+            }
+            else
+            {
+                if(graph->level[v] == graph->level[u])
+                {
+                    return 0;
+                }
+            }
             /* Traverse the next vertex in adjacency node */
             head = head->next;
         }
